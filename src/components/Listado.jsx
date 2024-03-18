@@ -18,6 +18,37 @@ const Listado = ({ bdColaboradores, setearColaboradores, search, historialId, se
 
   return (
     <>
+      <table className="table table-striped ">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            bdColaboradoresFiltradaOrdenada.map((item) => {
+              return (
+                <tr key={item.id}>
+                  <td >{item.id}</td>
+                  <td>{item.nombre}</td>
+                  <td>{item.correo}</td>
+                  <td>{item.edad}</td>
+                  <td>{item.cargo}</td>
+                  <td>{item.telefono}</td>
+                  <td><button type="button" className="border border-0 bg-transparent" onClick={() => handleClickDelete(item.id)}><i className="fa-solid fa-trash "></i></button></td>
+                </tr>
+
+              );
+            })
+          }
+        </tbody>
+      </table>
     </>
   )
 }
